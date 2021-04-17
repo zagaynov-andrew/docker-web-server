@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/13 14:19:50 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/17 23:22:16 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/18 00:25:23 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ WORKDIR /
 
 COPY ./srcs/start_server.sh /
 COPY ./srcs/index.html /var/www/html
+COPY ./srcs/autoindex.sh /
 
 EXPOSE 80 443
 

@@ -6,9 +6,11 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 20:53:22 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/17 23:53:20 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/18 00:31:29 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#!/bin/bash
 
 # replacing the nginx config file
 rm /etc/nginx/sites-available/default
@@ -36,6 +38,7 @@ openssl req -x509 -nodes -days 3650 \
 	-subj "/C=RU/ST=Moscow/L=Moscow/O=21-school/OU=ngamora/CN=localhost/" \
 	-keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 
+echo "autoindex is off"
 service nginx restart
 service php7.3-fpm restart 
 
