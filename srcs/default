@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    default                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/04/17 22:21:48 by ngamora           #+#    #+#              #
+#    Updated: 2021/04/17 22:21:54 by ngamora          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 server {
 	listen 80;
 	listen [::]:80;
@@ -5,10 +17,14 @@ server {
 
 	root /var/www/html;
 
-	index index.html index.nginx-debian.html;
+	index index.html index.nginx-debian.html index.php;
 
 	location / {
-		autoindex off;
+		autoindex on;
 		try_files $uri $uri/ =404;
+	}
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
 	}
 }
