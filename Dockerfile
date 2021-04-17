@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/13 14:19:50 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/17 21:39:36 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/17 23:22:16 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,6 @@ WORKDIR /
 COPY ./srcs/start_server.sh /
 COPY ./srcs/index.html /var/www/html
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD bash start_server.sh

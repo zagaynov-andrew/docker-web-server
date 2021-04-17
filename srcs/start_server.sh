@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 20:53:22 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/17 22:21:38 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/17 23:53:20 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ mkdir /var/www/html/data
 touch /var/www/html/data/file_1.txt
 touch /var/www/html/data/file_2.txt
 touch /var/www/html/data/file_3.txt
+
+openssl req -x509 -nodes -days 3650 \
+	-subj "/C=RU/ST=Moscow/L=Moscow/O=21-school/OU=ngamora/CN=localhost/" \
+	-keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 
 service nginx restart
 service php7.3-fpm restart 

@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/17 22:21:48 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/17 22:21:54 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/17 23:52:07 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,22 @@ server {
 	listen 80;
 	listen [::]:80;
 	server_name localhost;
+	return 301 https://$server_name$request_uri;
+}
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	server_name localhost;
+	ssl on;
+	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
 	root /var/www/html;
 
 	index index.html index.nginx-debian.html index.php;
 
 	location / {
-		autoindex on;
+		autoindex off;
 		try_files $uri $uri/ =404;
 	}
 	location ~ \.php$ {
