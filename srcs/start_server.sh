@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 20:53:22 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/18 00:31:29 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/18 00:45:31 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,9 @@ rm /etc/nginx/sites-available/default
 mv etc/default etc/nginx/sites-available/default
 
 mv phpMyAdmin-5.1.0-english /var/www/html/phpMyAdmin
+
+mv /wordpress /var/www/html/wordpress
+mv /wp-config.php var/www/html/wordpress
 
 # setting up rights
 chown -R www-data /var/www

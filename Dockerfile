@@ -6,7 +6,7 @@
 #    By: ngamora <ngamora@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/13 14:19:50 by ngamora           #+#    #+#              #
-#    Updated: 2021/04/18 00:25:23 by ngamora          ###   ########.fr        #
+#    Updated: 2021/04/18 12:44:31 by ngamora          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,13 @@ RUN apt-get update && \
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-english.tar.gz && \
     tar -zxvf phpMyAdmin-5.1.0-english.tar.gz && \
     rm phpMyAdmin-5.1.0-english.tar.gz
+COPY ./srcs/wordpress.tar.gz /
+RUN tar -xzvf wordpress.tar.gz && \
+    rm wordpress.tar.gz
 RUN service php7.3-fpm start
 
 COPY ./srcs/default /etc
+COPY ./srcs/wp-config.php /
 
 WORKDIR /
 
