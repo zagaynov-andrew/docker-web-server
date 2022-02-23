@@ -31,4 +31,4 @@ docker build -t docker-web-server .
 docker run --rm --name c-docker-web-server -it -p 80:80 -p 443:443 docker-web-server
 ```
 
-После чего, можно проверить работоспособность на [localhost:80](http://localhost:80) или [localhost:443](http://localhost:443) (перенапрвление на ssh происходит автоматически)
+После чего, можно проверить работоспособность на [localhost:80](http://localhost:80) (перенапрвление на безопасный https происходит автоматически)
